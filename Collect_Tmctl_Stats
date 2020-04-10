@@ -6,7 +6,7 @@
 #########################################################################
 
 while true; do
-  date >> /var/tmp/output_tmctl.txt;
+	date >> /var/tmp/output_tmctl.txt;
 	date +%s >> /var/tmp/output_tmctl.txt;
 	tmctl -ai -c -d blade >> /var/tmp/output_tmctl.txt;
 	date;
