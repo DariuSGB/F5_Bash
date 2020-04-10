@@ -3,6 +3,7 @@
 # author: Patrik Jonsson                                                #
 # date: 20200410                                                        #
 # description: Check global pool status                                 #
+# https://pastebin.com/kRp17AxR                                         #
 #########################################################################
 
 tmsh show ltm pool detail | gawk --posix '
