@@ -33,16 +33,16 @@ BEGIN {
 /Ltm::Pool Member:/{
   member=$(NF)
 }
-/^  {1}\| +Availability/{
+/^  \|   Availability/{
   avail=$4
 }
-/^  {1}\| +State/{
+/^  \|   State/{
   state=$4
 }
-/^  \| +Traffic/{
+/^  \| Traffic/{
   printf pool "|" member "|"
   printf color(avail) "|"
   printf color(state) "\n"
-  pool=""
+  pool="  \""
 }
 ' | column -t -s "|"
