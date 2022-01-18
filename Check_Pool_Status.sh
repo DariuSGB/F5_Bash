@@ -5,7 +5,7 @@
 # description: Check global pool status                                 #
 #########################################################################
 
-tmsh show ltm pool detail | awk '
+tmsh -c "cd / ; show ltm pool recursive members" | awk '
 function red(s) {
   printf "\033[1;31m" s "\033[0m"
 }
