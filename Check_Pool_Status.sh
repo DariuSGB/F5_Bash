@@ -25,13 +25,16 @@ function color(str) {
   }
 }
 BEGIN {
-  print "Pool|Member|Availability|State"
+  print "Pool|Member|IP|Availability|State"
 }
 /^Ltm::Pool/{
   pool=$2
 }
 /Ltm::Pool Member:/{
   member=$(NF)
+}
+/IP Address/{
+  ip=$(NF)
 }
 /^  \|   Availability/{
   avail=$4
@@ -40,7 +43,7 @@ BEGIN {
   state=$4
 }
 /^  \| Traffic/{
-  printf pool "|" member "|"
+  printf pool "|" member "|" ip "|"
   printf color(avail) "|"
   printf color(state) "\n"
   pool="  \""
